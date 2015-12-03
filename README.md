@@ -1,10 +1,17 @@
-# teaching-343
-343 teaching repo 
+# teaching phaser
+343 teaching repo group 10
 
-#plnkr link
-http://plnkr.co/edit/hNTK0CIb3A72XlkKks97?p=info
+#api
+http://phaser.io/docs/2.4.4/index
+
+#part I
+http://plnkr.co/edit/hNTK0CIb3A72XlkKks97?p=info (to be changed)
+
+#part II
+http://plnkr.co/edit/hNTK0CIb3A72XlkKks97?p=info (to be changed)
+
+#part III
+http://plnkr.co/edit/hNTK0CIb3A72XlkKks97?p=info (to be changed)
 
 #notes
-js directories are different
-*plnkr: script.js
-*github: js/index.js
+tbd
