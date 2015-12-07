@@ -13,6 +13,7 @@ bower install phaser
 ```
 npm install phaser
 ```
+or
 ```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"> </script>
 ```
