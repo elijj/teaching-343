@@ -108,6 +108,7 @@ setFriction: function (player, platform) {
 
 
 #Conclusion : 
+#Touch Screen Games
 This example of the use of phaser does not work well on mobile devices. Possible solutions to implementing a touch screen game by setting the cursors to be based off 
 
 #Saving games you create
