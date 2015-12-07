@@ -48,6 +48,8 @@ load sprite into the game!
 
 #create and update
 
+establishes the game so that it can run and step through dynamically
+
 #Part II : wrap the platforms
 
 http://plnkr.co/edit/naSBqaLDUbAlQijINeC3
