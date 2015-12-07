@@ -7,13 +7,15 @@ Final game: http://embed.plnkr.co/rf3W5naSlvpVkgpgvz9E/
 "Phaser is an HTML5 game framework which aims to help developers make powerful, cross-browser HTML5 games really quickly and, unlike some others, has solely been built to work with the mobile browsers. The only browser requirement is the support of the canvas tag. It also borrows a lot from Flixel." -http://phaser.io/
 
 ###Requirements
-
+```
 bower install phaser
-
+```
+```
 npm install phaser
-
-src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"
-
+```
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"> </script
+```
 
 ###Phaser 2.4.4 API Documentation 
 
@@ -108,7 +110,7 @@ setFriction: function (player, platform) {
 
 #Conclusion : 
 ###Touch Screen Games
-This example of the use of phaser does not work well on mobile devices. Possible solutions to implementing a touch screen game by setting the cursors to be based off touch. Visit the docs for more info.
+This example of the use of phaser does not work well on mobile devices. Possible solutions to implementing a touch screen game by setting the cursors to be based off touch. Visit the [docs](http://phaser.io/docs/2.4.4/index) for more info.
 
 ###Saving games you create
 
