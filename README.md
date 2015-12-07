@@ -14,7 +14,7 @@ http://phaser.io/docs/2.4.4/index
 
 #Part I : init , preload, create
 
-http://plnkr.co/edit/SAO9uhn37Cr25boXQf7K
+http://plnkr.co/edit/3pis2U4ymA3tRmFnvJxX
 
 #init
 
@@ -23,58 +23,76 @@ inti function is for setting the attributes for our game's world
 #preload
 
 preload is for preloading assets that will be used for the game artwork
+- the assets being used for this tutorial were provided by examples from Phaser's website
 
 #try adding your own sprite
 
-Sprite creator: http://www.piskelapp.com/
-- save as png
-- load sprite with this code 
+Create a sprite at: http://www.piskelapp.com/
 
-#create
+Save PNG file and upload to image hosting site: http://postimage.org/
 
-create is for setting variables like: stage, sky, platfroms, player, physics, camera, cursors
+load sprite into the game! 
+  // place this code in the preload section
+  this.load.spritesheet('dude', 'http://s11.postimg.org/qxn5gchjz/hatdude.png');
 
-stage: {jist of what it is for}
+#create and update
 
-sky: {jist of what it is for}
+#Part II : wrap the platforms
 
-platfroms: {jist of what it is for}
+http://plnkr.co/edit/naSBqaLDUbAlQijINeC3
 
-player: {jist of what it is for}
+create wrapPlatform function
 
-physics: {jist of what it is for}
+// this function makes the platforms appear to be wrapping through the game's world
 
-camera: {jist of what it is for}
+wrapPlatform: function (platform) {
 
-cursors: {jist of what it is for}
+            if (platform.body.velocity.x < 0 && platform.x <= -160)
+            {
+                platform.x = 640;
+            }
+            else if (platform.body.velocity.x > 0 && platform.x >= 640)
+            {
+                platform.x = -160;
+            }
+    
+        },
+        
+// the following code is used in the update section to dynamically change the properties of the platforms
+  
+  this.platforms.forEach(this.wrapPlatform, this);
 
-Note where the game canvas will be, like for this one it's set in the body, but maybe other developers might not want it positioned like we have it here.
+#Part III : add ice platform
+
+http://plnkr.co/edit/L4LisbvqbzXJu39cP5Ne
+
+Here we will add a new ice platform to the game to change the player's movement on the platforms.
+
+First, we need to add the ice platforms to the game. 
+
+// add the following in the for-loop under the create function to add the ice platforms
+    var type = i % 2 === 1 ? 'platform' : 'ice-platform';
+    var platform = this.platforms.create(x, y, type); 
+    
+Now that we have the ice platforms, we want to change their friction properties by creating a collision callback function.
+
+// add the following function underneath wrapPlatform
+setFriction: function (player, platform) {
+
+            if (platform.key === 'ice-platform')
+            {
+                player.body.x -= platform.body.x - platform.body.prev.x;
+            }
+
+        },
+        
+// add setFriction to the collide callback in the update section
+    this.physics.arcade.collide(this.player, this.platforms, this.setFriction, null, this);
 
 
-Try changing stage, sky, or camera to see it's different results.
 
 
-So now you'll have now created all the parts to start stepping through your game.
 
-#Part II : (so continue like this format) 
-
-through at least one more part and plnkr link with things that are crucial to adding so that the next plnkr is not just a completed version.
-
-http://plnkr.co/edit/rf3W5naSlvpVkgpgvz9E?p=preview
-
-#subheader
-
-#Part III :
-
-http://plnkr.co/edit/rf3W5naSlvpVkgpgvz9E?p=preview
-
-#subheader
-
-#Part IV :
-
-http://plnkr.co/edit/rf3W5naSlvpVkgpgvz9E?p=preview
-
-#subheader
 
 #Conclusion : 
 This example of the use of phaser does not work well on mobile devices. Possible solutions to implementing a touch screen game by setting the cursors to be based off touch screen gestures which could be achieved with a solution like JQueryMobile - http://api.jquerymobile.com/ or ??????????
