@@ -18,15 +18,17 @@ http://plnkr.co/edit/SAO9uhn37Cr25boXQf7K
 
 #init
 
-inti is for 
+inti function is for setting the attributes for our game's world
 
 #preload
 
-preload is for preloading assets that will be used for the game 
+preload is for preloading assets that will be used for the game artwork
 
 #try adding your own sprite
 
-{link to sprite creator}
+Sprite creator: http://www.piskelapp.com/
+- save as png
+- load sprite with this code 
 
 #create
 

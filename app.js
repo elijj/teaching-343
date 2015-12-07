@@ -4,7 +4,6 @@ var game = new Phaser.Game(640, 480, Phaser.CANVAS, 'game');
 
         this.player = null;
         this.platforms = null;
-        this.sky = null;
 
         this.facing = 'left';
         this.edgeTimer = 0;
@@ -30,26 +29,20 @@ var game = new Phaser.Game(640, 480, Phaser.CANVAS, 'game');
 
         preload: function () {
 
-            //  We need this because the assets are on Amazon S3
-            this.load.baseURL = 'http://files.phaser.io.s3.amazonaws.com/codingtips/issue003/';
-            this.load.crossOrigin = 'anonymous';
-
-            this.load.image('trees', 'assets/trees.png');
-            this.load.image('clouds', 'assets/clouds.png');
-            this.load.image('platform', 'assets/platform.png');
-            this.load.image('ice-platform', 'assets/ice-platform.png');
-            this.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-
-            //  Note: Graphics are Copyright 2015 Photon Storm Ltd.
+            //  We need this because the assets are on Amazon S3 cloud service owned by Phaser
+            this.load.image('trees', 'http://files.phaser.io.s3.amazonaws.com/codingtips/issue003/assets/trees.png');
+            this.load.image('clouds', 'http://files.phaser.io.s3.amazonaws.com/codingtips/issue003/assets/clouds.png');
+            this.load.image('platform', 'http://files.phaser.io.s3.amazonaws.com/codingtips/issue003/assets/platform.png');
+            this.load.image('ice-platform', 'http://files.phaser.io.s3.amazonaws.com/codingtips/issue003/assets/ice-platform.png');
+            
+            // This is where you load your own sprite's image
+            this.load.image('dude', 'http://s11.postimg.org/qxn5gchjz/hatdude.png');
 
         },
 
         create: function () {
 
             this.stage.backgroundColor = '#2f9acc';
-
-            this.sky = this.add.tileSprite(0, 0, 640, 480, 'clouds');
-            this.sky.fixedToCamera = true;
 
             this.add.sprite(0, 1906, 'trees');
 
@@ -85,16 +78,11 @@ var game = new Phaser.Game(640, 480, Phaser.CANVAS, 'game');
             this.platforms.setAll('body.allowGravity', false);
             this.platforms.setAll('body.immovable', true);
 
-            this.player = this.add.sprite(320, 1952, 'dude');
+            this.player = this.add.sprite(320, 1960, 'dude');
 
             this.physics.arcade.enable(this.player);
 
             this.player.body.collideWorldBounds = true;
-            this.player.body.setSize(20, 32, 5, 16);
-
-            this.player.animations.add('left', [0, 1, 2, 3], 10, true);
-            this.player.animations.add('turn', [4], 20, true);
-            this.player.animations.add('right', [5, 6, 7, 8], 10, true);
 
             this.camera.follow(this.player);
 
@@ -115,18 +103,16 @@ var game = new Phaser.Game(640, 480, Phaser.CANVAS, 'game');
     
         },
 
-        // setFriction: function (player, platform) {
+        setFriction: function (player, platform) {
 
-        //     if (platform.key === 'ice-platform')
-        //     {
-        //         player.body.x -= platform.body.x - platform.body.prev.x;
-        //     }
+            if (platform.key === 'ice-platform')
+            {
+                player.body.x -= platform.body.x - platform.body.prev.x;
+            }
 
-        // },
+        },
 
         update: function () {
-
-            this.sky.tilePosition.y = -(this.camera.y * 0.7);
 
             this.platforms.forEach(this.wrapPlatform, this);
 
@@ -161,7 +147,7 @@ var game = new Phaser.Game(640, 480, Phaser.CANVAS, 'game');
             {
                 if (this.facing !== 'idle')
                 {
-                    this.player.animations.stop();
+                    // this.player.animations.stop();
 
                     if (this.facing === 'left')
                     {
