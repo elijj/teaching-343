@@ -2,6 +2,9 @@
 
 Final game: http://embed.plnkr.co/rf3W5naSlvpVkgpgvz9E/
 
+#Slides
+[Slides Link](http://slides.com/lestelle/phaser)
+
 #What is Phaser?
 
 "Phaser is an HTML5 game framework which aims to help developers make powerful, cross-browser HTML5 games really quickly and, unlike some others, has solely been built to work with the mobile browsers. The only browser requirement is the support of the canvas tag. It also borrows a lot from Flixel." -http://phaser.io/
