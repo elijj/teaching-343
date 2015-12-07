@@ -6,7 +6,7 @@ Final game: http://embed.plnkr.co/rf3W5naSlvpVkgpgvz9E/
 
 "Phaser is an HTML5 game framework which aims to help developers make powerful, cross-browser HTML5 games really quickly and, unlike some others, has solely been built to work with the mobile browsers. The only browser requirement is the support of the canvas tag. It also borrows a lot from Flixel." -http://phaser.io/
 
-#Requirements
+###Requirements
 
 bower install phaser
 
@@ -15,11 +15,11 @@ npm install phaser
 src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"
 
 
-#Phaser 2.4.4 API Documentation 
+###Phaser 2.4.4 API Documentation 
 
 http://phaser.io/docs/2.4.4/index
 
-#Git Hub
+###Git Hub
 
 https://github.com/photonstorm/phaser
 
@@ -27,16 +27,16 @@ https://github.com/photonstorm/phaser
 
 http://plnkr.co/edit/3pis2U4ymA3tRmFnvJxX
 
-#init
+###init
 
 inti function is for setting the attributes for our game's world
 
-#preload
+###preload
 
 preload is for preloading assets that will be used for the game artwork
 - the assets being used for this tutorial were provided by examples from Phaser's website
 
-#try adding your own sprite
+###try adding your own sprite
 
 Create a sprite at: http://www.piskelapp.com/
 
@@ -46,7 +46,7 @@ load sprite into the game!
   // place this code in the preload section
   this.load.spritesheet('dude', 'http://s11.postimg.org/qxn5gchjz/hatdude.png');
 
-#create and update
+###create and update
 
 establishes the game so that it can run and step through dynamically
 
@@ -59,7 +59,7 @@ create wrapPlatform function
 // this function makes the platforms appear to be wrapping through the game's world
 
 wrapPlatform: function (platform) {
-
+```javascript 
             if (platform.body.velocity.x < 0 && platform.x <= -160)
             {
                 platform.x = 640;
@@ -70,11 +70,11 @@ wrapPlatform: function (platform) {
             }
     
         },
-        
+```       
 // the following code is used in the update section to dynamically change the properties of the platforms
-  
+```javascript   
   this.platforms.forEach(this.wrapPlatform, this);
-
+```
 #Part III : add ice platform
 
 http://plnkr.co/edit/L4LisbvqbzXJu39cP5Ne
@@ -84,22 +84,22 @@ Here we will add a new ice platform to the game to change the player's movement 
 First, we need to add the ice platforms to the game. 
 
 // add the following in the for-loop under the create function to add the ice platforms
+```javascript
     var type = i % 2 === 1 ? 'platform' : 'ice-platform';
     var platform = this.platforms.create(x, y, type); 
-    
+```  
 Now that we have the ice platforms, we want to change their friction properties by creating a collision callback function.
 
 // add the following function underneath wrapPlatform
 ```javascript
 setFriction: function (player, platform) { 
             if (platform.key === 'ice-platform')
-            n
               player.body.x -= platform.body.x - platform.body.prev.x;
             }
         },
 ```
 // add setFriction to the collide callback in the update section
-    ```javascript
+```javascript
     this.physics.arcade.collide(this.player, this.platforms, this.setFriction, null, this);
 ```
 
@@ -108,9 +108,9 @@ setFriction: function (player, platform) {
 
 
 #Conclusion : 
-#Touch Screen Games
+###Touch Screen Games
 This example of the use of phaser does not work well on mobile devices. Possible solutions to implementing a touch screen game by setting the cursors to be based off 
 
-#Saving games you create
+###Saving games you create
 
 http://www.thebotanistgame.com/blog/2015/08/12/saving-loading-game-state-phaserjs.html
