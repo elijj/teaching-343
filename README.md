@@ -14,7 +14,7 @@ bower install phaser
 npm install phaser
 ```
 ```
-<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"> </script
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"> </script>
 ```
 
 ###Phaser 2.4.4 API Documentation 
