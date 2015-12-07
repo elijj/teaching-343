@@ -57,9 +57,8 @@ http://plnkr.co/edit/naSBqaLDUbAlQijINeC3
 create wrapPlatform function
 
 // this function makes the platforms appear to be wrapping through the game's world
-
-wrapPlatform: function (platform) {
 ```javascript 
+wrapPlatform: function (platform) {
             if (platform.body.velocity.x < 0 && platform.x <= -160)
             {
                 platform.x = 640;
