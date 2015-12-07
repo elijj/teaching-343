@@ -6,11 +6,20 @@
 
 #Requirements
 
-CDN: https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js
+bower install phaser
+
+npm install phaser
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"> </script>
+
 
 #Phaser 2.4.4 API Documentation 
 
 http://phaser.io/docs/2.4.4/index
+
+#Git Hub
+
+https://github.com/photonstorm/phaser
 
 #Part I : init , preload, create
 
