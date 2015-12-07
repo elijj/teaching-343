@@ -1,0 +1,97 @@
+Notes: 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INTRO
+<jessica>
+
+(show the end game)
+
+Explore leverage & flexibility this game engine
+
+</jessica>
+
+<kenny>
+Phaser is  as js game engine that html 5 
+    
+    -super flexible
+    -easy to use
+    -small learning curve
+    -mobile freindly
+    -canvas tag based
+    -only limited by your IMAGINATION (gesticulate)
+
+(mention what each is)
+
+bower install phaser 
+(similiar to npm explore it if you havent yet)
+
+npm install phaser
+(if you haven't explored it yet, you really should)
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"> </script>
+(basic, we know what this is)
+
+Links
+(check out give 30 sec)
+</kenny>
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>PART I
+
+< Kirk >
+
+    - the game looks pretty empty right now, so we are going to walk through the code 
+    right now to understand how we can take full advantage of this JavaScript Framework. 
+    - (show various different sections of the code and explain)
+        - create canvas, init, preload, create, update
+    - first we need a character for the game
+        - show piskelapp.com to create sprite, upload, and load into game
+    - explain what is still missing
+        - the platforms move off the screen (but we could just change the gravity to go up) 
+
+</Kirk>
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>PART II
+
+<jessica>
+    
+    - we have a set size for our game's world 
+        - 640 wide x 2000 height
+    -colliions
+    - the platforms are currently set to follow a direct path out of the bounds of our world
+        - increase to 800 wide (this.world.resize(800, 2000)) to show where they disappear
+    - we will create a callback function that wraps the platform's position around the world
+    - copy paste the wrapPlatform function underneath the "create" function
+        - explain what is going on with the platform's position coordinates
+    - in order to implement this, we still need to call the function in "update"
+        - copy paste "this.platforms.forEach(this.wrapPlatform, this);"
+    -explain goes off at 640 and resets @ -160
+    - right now we could play this game to reach the top of our game world
+        - but shouldn't we make this a little more challenging?
+
+</jessica>
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>PART III
+
+<eli>
+    - there are a lot of things we could add to the game to make this harder
+        - add enemies that make us restart at the bottom 
+        - add a goal to collect coins
+        - what we will do, is add some slippery ice platforms 
+    - right now whenever our player lands on a platform, his x-coordinates parellel the movement of the platform
+        - this collision relationship is how we will make unique ice platforms with less friction
+    - before worrying about the friction, let's first add the ice platform sprite to the game
+        - we already have it loaded in the "preload" function, we just need to find spots to put it in our world
+        - look at the for loop for where to load
+    -*insert platforms
+    -Friction
+        -so standard is set 'physics' is arcade
+    -what we want: movement on slipper tiles
+
+    -copy paste set Friction function
+    -point out key parts
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Conclusion
+
+-can use touch
+-saving games
+
+</eli>
