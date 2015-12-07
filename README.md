@@ -90,16 +90,12 @@ First, we need to add the ice platforms to the game.
 Now that we have the ice platforms, we want to change their friction properties by creating a collision callback function.
 
 // add the following function underneath wrapPlatform
-<code>
-setFriction: function (player, platform) {
-
+<code>setFriction: function (player, platform) {
             if (platform.key === 'ice-platform')
             {
                 player.body.x -= platform.body.x - platform.body.prev.x;
             }
-
-        },
-</code>        
+        },</code>        
 // add setFriction to the collide callback in the update section
     this.physics.arcade.collide(this.player, this.platforms, this.setFriction, null, this);
 
